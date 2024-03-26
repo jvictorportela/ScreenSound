@@ -2,20 +2,23 @@
 
 public class Album
 {
+    private List<MusicaModel> musicas = new List<MusicaModel>();
     public string Nome { get; set; }
-
     public double DuracaoTotal => musicas.Sum(m => m.Duracao);
 
-    private List<Musica> musicas = new List<Musica>();
-    
-    public void AdicionarMusica(Musica musicasParameter)
+    public Album(string nome)
     {
-        musicas.Add(musicasParameter);
+        Nome = nome;
+    }
+    
+    public void AdicionarMusica(MusicaModel musicaModelParameter)
+    {
+        musicas.Add(musicaModelParameter);
     }
 
     public void ExibirAlbum()
     {
-        Console.WriteLine($"Exibindo músicas do albúm {Nome}: \n");
+        Console.WriteLine($"Exibindo músicas do álbum {Nome}: \n");
 
         foreach (var musica in musicas)
         {
